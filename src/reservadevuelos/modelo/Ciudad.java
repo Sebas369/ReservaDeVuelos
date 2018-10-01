@@ -26,8 +26,11 @@ public class Ciudad {
     
     }
 
-   
+    public int getIdCiudad() {
+        return idCiudad;
+    }
 
+   
    /* public void setIdCiudad(int idCiudad) {
         this.idCiudad = idCiudad;
     }*/
