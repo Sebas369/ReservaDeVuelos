@@ -41,7 +41,7 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al insertar la ciudad: " + ex.getMessage());
         }
     }
     
@@ -58,7 +58,7 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al insertar la ciudad: " + ex.getMessage());
         }
         
     
@@ -82,7 +82,7 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al insertar la ciudad: " + ex.getMessage());
         }
     
     }
