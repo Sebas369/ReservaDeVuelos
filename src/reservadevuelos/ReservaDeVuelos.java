@@ -18,7 +18,7 @@ public class ReservaDeVuelos {
      */
     public static void main(String[] args) {
         // TODO code applicaion logic here
-        Ciudad c = new Ciudad("Mendoza","Argentina",true);
+        Ciudad c = new Ciudad(1,"Mendoza","Argentina",true);
         c.setNombreCiudad("San Luis");
        System.out.println(c.getNombreCiudad());
     }
