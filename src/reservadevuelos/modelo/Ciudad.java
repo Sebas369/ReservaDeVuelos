@@ -16,13 +16,26 @@ public class Ciudad {
     private boolean vigencia; 
     
     
-    //CONSTRUCTOR
+    //CONSTRUCTORES
+    
+    public Ciudad(){
+        this.idCiudad = -1;
+    }
 
     public Ciudad(String nombreCiudad, String pais, boolean vigencia) {
         
         this.nombreCiudad = nombreCiudad;
         this.pais = pais;
         this.vigencia = vigencia;
+    
+    }
+    
+    public Ciudad(String nombreCiudad, String pais, boolean vigencia, int idCiudad) {
+        
+        this.nombreCiudad = nombreCiudad;
+        this.pais = pais;
+        this.vigencia = vigencia;
+        this.idCiudad = idCiudad;
     
     }
 
@@ -56,8 +69,15 @@ public class Ciudad {
         this.vigencia = vigencia;
     }
     
-   
+
+    public int getIdCiudad() {
+        return idCiudad;
+    }
+
+    public void setIdCiudad(int idCiudad) {
+        this.idCiudad = idCiudad;
+    }
     
-        
+    
     }
 

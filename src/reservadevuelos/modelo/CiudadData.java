@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package reservadevuelos.modelo;
-
+import reservadevuelos.modelo.Ciudad;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ public class CiudadData {
         try {
             connection = conexion.getConexion();
         } catch (SQLException ex) {
-            System.out.println("Error al abrir al obtener la conexion");
+            System.out.println("Error al abrir la conexion: " + ex.getMessage());
         }
     }
     
@@ -69,7 +69,7 @@ public class CiudadData {
     
         try {
             
-            String sql = "UPDATE ciudad SET nbreCiudad = ?, pais = ? , vigencia =? WHERE id = ?;";
+            String sql = "UPDATE ciudad SET nbreCiudad = ?, pais = ? , vigencia =? WHERE idCiudad = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, ciudad.getNombreCiudad());
@@ -82,10 +82,43 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al intentar modificar una ciudad: " + ex.getMessage());
         }
     
     }
+    
+    //INTENTO PARA OBTENER CIUDADES
+//    public Object [] obtenerCiudades(){
+//        Object [] ciudades = new Object[4];
+//            
+//
+//        try {
+//            String sql = "SELECT * FROM ciudad;";
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            ResultSet resultSet = statement.executeQuery();
+//            
+//            while(resultSet.next()){
+//        
+//                ciudades[0] = resultSet.getObject(1);
+//                ciudades[1] = resultSet.getObject(2);
+//                ciudades[2] = resultSet.getObject(3);
+//                ciudades[3] = resultSet.getObject(4);
+//                //ciudad.setIdCiudad(resultSet.getInt("idCiudad"));
+//                //ciudad.setNombreCiudad(resultSet.getString("nbreCiudad"));
+//                //ciudad.setPais(resultSet.getString("pais"));
+//                //ciudad.setVigencia(resultSet.getBoolean("vigencia"));
+//
+//                //ciudades.add(ciudad);
+//            }      
+//            statement.close();
+//        } catch (SQLException ex) {
+//            System.out.println("Error al obtener las ciudades: " + ex.getMessage());
+//        }
+//        
+//        
+//        return ciudades;
+//    }
+    
     // Main de prueba clase ciudadData
       public static void main(String[] args) {
         // TODO code applicaion logic here
@@ -97,11 +130,8 @@ public class CiudadData {
         }
         CiudadData ciudadD;
         ciudadD = new CiudadData(conexion);
-        Ciudad c = new Ciudad("Mendoza","Argentina",true);
-        //ciudadD.altaCiudad(c);
-        ciudadD.bajaCiudad(1);
-
-        
-    }
-    
+        Ciudad c = new Ciudad("San Juan","Argentina",true);
+        ciudadD.altaCiudad(c);
+        //ciudadD.bajaCiudad(1);
+      }
 }
