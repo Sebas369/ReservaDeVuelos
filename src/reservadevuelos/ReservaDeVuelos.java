@@ -5,7 +5,11 @@
  */
 package reservadevuelos;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import reservadevuelos.modelo.Ciudad;
+import reservadevuelos.modelo.CiudadData;
+import reservadevuelos.modelo.Conexion;
 
 /**
  *
@@ -18,9 +22,16 @@ public class ReservaDeVuelos {
      */
     public static void main(String[] args) {
         // TODO code applicaion logic here
-        Ciudad c = new Ciudad(1,"Mendoza","Argentina",true);
-        c.setNombreCiudad("San Luis");
-       System.out.println(c.getNombreCiudad());
+        Conexion conexion = null;
+        try {
+            conexion = new Conexion("jdbc:mysql://localhost/reserva_de_vuelos", "root", "");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CiudadData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        CiudadData ciudadD;
+        ciudadD = new CiudadData(conexion);
+        Ciudad c = new Ciudad("Cordoba","Argentina",false);
+        ciudadD.altaCiudad(c);
     }
     
 }

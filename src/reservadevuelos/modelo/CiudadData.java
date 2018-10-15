@@ -7,9 +7,10 @@ package reservadevuelos.modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -58,7 +59,7 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar la ciudad: " + ex.getMessage());
+            System.out.println("Error al borrar la ciudad: " + ex.getMessage());
         }
         
     
@@ -82,26 +83,39 @@ public class CiudadData {
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar la ciudad: " + ex.getMessage());
+            System.out.println("Error al modificar la ciudad: " + ex.getMessage());
         }
     
     }
-    // Main de prueba clase ciudadData
-      public static void main(String[] args) {
-        // TODO code applicaion logic here
-        Conexion conexion = null;
-        try {
-            conexion = new Conexion("jdbc:mysql://localhost/reserva_de_vuelos", "root", "");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CiudadData.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        CiudadData ciudadD;
-        ciudadD = new CiudadData(conexion);
-        Ciudad c = new Ciudad("Mendoza","Argentina",true);
-        //ciudadD.altaCiudad(c);
-        ciudadD.bajaCiudad(1);
+    
+    //Obtener Ciudades
+    
+    public List<Ciudad> obtenerCiudades(){
+        List<Ciudad> ciudades = new ArrayList<>();
+            
 
+        try {
+            String sql = "SELECT * FROM ciudad;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            Ciudad ciudad;
+            while(resultSet.next()){
+                ciudad = new Ciudad();
+                ciudad.setIdCiudad(resultSet.getInt("idCiudad"));
+                ciudad.setNombreCiudad(resultSet.getString("nbreCiudad"));
+                ciudad.setPais(resultSet.getString("pais"));
+                ciudad.setVigencia(resultSet.getBoolean("vigencia"));
+
+                ciudades.add(ciudad);
+            }      
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener las ciudades: " + ex.getMessage());
+        }
         
+        
+        return ciudades;
     }
+
     
 }

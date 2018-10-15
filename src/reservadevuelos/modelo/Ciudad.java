@@ -25,15 +25,21 @@ public class Ciudad {
         this.vigencia = vigencia;
     
     }
+    //CONSTRUCTOR POR DEFECTO
+
+    public Ciudad() {
+    }
+    
+    
 
     public int getIdCiudad() {
         return idCiudad;
     }
 
    
-   /* public void setIdCiudad(int idCiudad) {
+    public void setIdCiudad(int idCiudad) {
         this.idCiudad = idCiudad;
-    }*/
+    }
     
     
 
