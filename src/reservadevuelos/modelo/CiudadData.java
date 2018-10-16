@@ -88,8 +88,7 @@ public class CiudadData {
     
     }
     
-    //Obtener Ciudades
-    
+    //Obtener Ciudades    
     public List<Ciudad> obtenerCiudades(){
         List<Ciudad> ciudades = new ArrayList<>();
             
