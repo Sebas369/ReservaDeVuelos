@@ -127,10 +127,5 @@ public class ClienteData {
         
         return clientes;
     }
-
-    
-    
-    
-    
-    
+ 
 }
