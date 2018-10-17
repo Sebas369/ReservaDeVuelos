@@ -20,7 +20,6 @@ public class Cliente {
     private String email;
     
     //constructor
-    
     Cliente(int idClie,String nbre,String apell,long dni,long nPasapor,String numTarj,String email){
         idCliente = idClie;
         nombre = nbre;
