@@ -30,7 +30,10 @@ public class Cliente {
         numTarjeta = numTarj;
         this.email = email;
     }
-
+    
+    //constructor por defecto
+    Cliente(){
+    }
     public int getIdCliente() {
         return idCliente;
     }
