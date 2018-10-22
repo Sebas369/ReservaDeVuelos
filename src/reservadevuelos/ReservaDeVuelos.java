@@ -7,6 +7,8 @@ package reservadevuelos;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import reservadevuelos.modelo.Asiento;
+import reservadevuelos.modelo.AsientoData;
 import reservadevuelos.modelo.Ciudad;
 import reservadevuelos.modelo.CiudadData;
 import reservadevuelos.modelo.Conexion;
@@ -28,10 +30,20 @@ public class ReservaDeVuelos {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CiudadData.class.getName()).log(Level.SEVERE, null, ex);
         }
-        CiudadData ciudadD;
-        ciudadD = new CiudadData(conexion);
-        Ciudad c = new Ciudad("Cordoba","Argentina",false);
-        ciudadD.altaCiudad(c);
+// PRUEBA PARA AGREGAR UNA CIUDAD
+
+//        CiudadData ciudadD;
+//        ciudadD = new CiudadData(conexion);
+//        Ciudad d = new Ciudad("Cordoba","Argentina",false);
+//        d.setIdCiudad(2);
+//        ciudadD.modifCiudad(d);
+
+//PRUEBA PARA AGREGAR UN ASIENTO
+
+//        AsientoData asientoD = new AsientoData(conexion);
+//        Asiento unAsiento = new Asiento(2, "A", 7, true, 500);
+//        asientoD.agregarAsiento(unAsiento);
+
     }
     
 }
