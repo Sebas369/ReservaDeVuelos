@@ -76,7 +76,7 @@ public class ClienteData {
     
         try {
             
-            String sql = "UPDATE cliente SET nombre = ?, apellido = ? , sexo = ? , dni = ? , numPasaporte = ? , numTarjeta = ? , email = ? , WHERE id = ?;";
+            String sql = "UPDATE cliente SET nombre = ?, apellido = ? , sexo = ? , dni = ? , numPasaporte = ? , numTarjeta = ? , email = ? , WHERE idCliente = ?;";
 
             PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql);
             statement.setString(1, cliente.getNombre());

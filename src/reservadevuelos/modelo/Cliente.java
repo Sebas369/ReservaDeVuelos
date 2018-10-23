@@ -20,10 +20,11 @@ public class Cliente {
     private String email;
     
     //constructor
-    Cliente(int idClie,String nbre,String apell,long dni,long nPasapor,String numTarj,String email){
-        idCliente = idClie;
+public Cliente(String nbre,String apell,String sexo,long dni,long nPasapor,String numTarj,String email){
+        
         nombre = nbre;
         apellido = apell;
+        this.sexo = sexo;
         this.dni = dni;
         numPasaporte = nPasapor;
         numTarjeta = numTarj;
@@ -33,6 +34,7 @@ public class Cliente {
     //constructor por defecto
     Cliente(){
     }
+
     public int getIdCliente() {
         return idCliente;
     }
