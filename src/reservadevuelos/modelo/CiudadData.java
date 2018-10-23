@@ -18,9 +18,11 @@ import java.util.List;
  */
 public class CiudadData {
     private Connection connection = null;
+    private Conexion conexion;
     
     public CiudadData(Conexion conexion) {
         try {
+            this.conexion=conexion;
             connection = conexion.getConexion();
         } catch (SQLException ex) {
             System.out.println("Error al abrir al obtener la conexion");
@@ -116,5 +118,58 @@ public class CiudadData {
         return ciudades;
     }
 
+    //obtener Ciudad por id
+    public Ciudad obtenerCiudadPorId(int idCiudad){  
+        Ciudad ciudad= null;
+     
+            String sql = "SELECT `idCiudad`, `nbreCiudad`, `pais`, `vigencia` FROM `ciudad` WHERE  `idCiudad`= ?;";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, idCiudad);
+                
+            ResultSet resultSet = statement.executeQuery();
+            ciudad = new Ciudad();
+            while(resultSet.next()){
+                ciudad.setIdCiudad(resultSet.getInt("idCiudad"));
+                ciudad.setNombreCiudad(resultSet.getString("nbreCiudad"));
+                ciudad.setPais(resultSet.getString("pais"));
+                ciudad.setVigencia(resultSet.getBoolean("vigencia"));
+                           
+            }
+                statement.close();
+            }
+                  
+         catch (SQLException ex) {
+            System.out.println("Error al obtener la ciudad: " + ex.getMessage());
+        }      
+        
+        return ciudad;
+    }
+    
+    //obtener ciudad por nombre
+    public Ciudad obtenerCiudad(String nombre){  
+        Ciudad ciudad= null;
+     
+            String sql = "SELECT `idCiudad`, `nbreCiudad`, `pais`, `vigencia` FROM `ciudad` WHERE  `nbreCiudad`= ?;";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, nombre);
+                
+            ResultSet resultSet = statement.executeQuery();
+            ciudad = new Ciudad();
+            while(resultSet.next()){
+                ciudad.setIdCiudad(resultSet.getInt("idCiudad"));
+                ciudad.setNombreCiudad(resultSet.getString("nbreCiudad"));
+                ciudad.setPais(resultSet.getString("pais"));
+                ciudad.setVigencia(resultSet.getBoolean("vigencia"));
+                           
+            }
+                statement.close();
+            }
+                  
+         catch (SQLException ex) {
+            System.out.println("Error al obtener la ciudad: " + ex.getMessage());
+        }      
+        
+        return ciudad;
+    }
     
 }

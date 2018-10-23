@@ -22,6 +22,8 @@ public class Vuelo {
     private String estadoVuelo;
 
     //Constructor
+    public Vuelo(){
+    }
     public Vuelo(Ciudad ciudadOrigen, Ciudad ciudadDestino, String aerolinea, String aeronave, LocalDate fechaSalida, LocalDate fechaLlegada, String estadoVuelo) {
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
@@ -32,8 +34,8 @@ public class Vuelo {
         this.estadoVuelo = estadoVuelo;
     }
     
+    
     //Getter y setter
-
     public int getIdVuelo() {
         return idVuelo;
     }
