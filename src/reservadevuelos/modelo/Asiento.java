@@ -17,15 +17,18 @@ public class Asiento {
   private boolean disponibilidad;
   private double precioAsiento;
   
-  //constyructor
+  //constructor
 
-    public Asiento(int idAsiento, int idVuelo, String letra, int numero, boolean disponibilidad, double precioAsiento) {
-        this.idAsiento = idAsiento;
+    public Asiento(int idVuelo, String letra, int numero, boolean disponibilidad, double precioAsiento) {
         this.idVuelo = idVuelo;
         this.letra = letra;
         this.numero = numero;
         this.disponibilidad = disponibilidad;
         this.precioAsiento = precioAsiento;
+    }
+    //Constructor por defecto
+    public Asiento (){
+        
     }
 
     public int getIdAsiento() {
@@ -60,7 +63,7 @@ public class Asiento {
         this.numero = numero;
     }
 
-    public boolean isDisponibilidad() {
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 
