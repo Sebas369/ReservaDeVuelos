@@ -40,6 +40,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuAsiento = new javax.swing.JMenu();
         jMenuItemGestionar = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,6 +88,14 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMenuAsiento.add(jMenuItemGestionar);
+
+        jMenuItem3.setText("Gestionar asientos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenuAsiento.add(jMenuItem3);
 
         jMenuBar1.add(jMenuAsiento);
 
@@ -146,6 +155,15 @@ public class Inicio extends javax.swing.JFrame {
         escritorio.moveToFront(vaa);
     }//GEN-LAST:event_jMenuItemGestionarActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaGestionAsiento vga = new VistaGestionAsiento();
+        vga.setVisible(true);
+        escritorio.add(vga);
+        escritorio.moveToFront(vga);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,6 +216,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItemGestionar;
     // End of variables declaration//GEN-END:variables
 }
