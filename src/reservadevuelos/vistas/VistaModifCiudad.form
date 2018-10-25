@@ -66,7 +66,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               <Component id="jTextNombreBuscar" min="-2" pref="123" max="-2" attributes="0"/>
-                              <EmptySpace pref="60" max="32767" attributes="0"/>
+                              <EmptySpace pref="62" max="32767" attributes="0"/>
                               <Component id="jBbuscar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -115,7 +115,7 @@
                   <Component id="jRadioBvigencia" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBlimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBmodif" alignment="3" min="-2" max="-2" attributes="0"/>
