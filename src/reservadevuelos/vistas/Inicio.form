@@ -11,6 +11,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-cerrar-ventana-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
             </MenuItem>
@@ -26,6 +29,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-marcador-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar Ciudad"/>
               </Properties>
               <Events>
@@ -34,6 +40,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-editar-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Ciudad"/>
               </Properties>
               <Events>
@@ -42,6 +51,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-eliminar-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar Ciudad"/>
               </Properties>
               <Events>
@@ -57,6 +69,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuAgregarVuelo">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-aeropuerto-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar Vuelo"/>
               </Properties>
               <Events>
@@ -65,6 +80,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuEliminarVuelo">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-eliminar-propiedad-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar Vuelo"/>
               </Properties>
               <Events>
@@ -73,6 +91,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuModificarVuelo">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-editar-propiedad-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Vuelo"/>
               </Properties>
               <Events>
@@ -81,6 +102,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuConsultaVuelo">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-b&#xfa;squeda-de-propiedad-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Vuelos"/>
               </Properties>
               <Events>
@@ -96,6 +120,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGestionar">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-ventana-del-avi&#xf3;n-cerrada-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar asientos"/>
               </Properties>
               <Events>
@@ -104,6 +131,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-multiedici&#xf3;n-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gestionar asientos"/>
               </Properties>
               <Events>
@@ -119,11 +149,17 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-a&#xf1;adir-usuaria-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar Cliente"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-eliminar-usuaria-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
               </Properties>
               <Events>
@@ -132,6 +168,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/icons8-editar-usuaria-48.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Modificar Datos"/>
               </Properties>
             </MenuItem>

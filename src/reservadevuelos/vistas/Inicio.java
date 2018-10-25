@@ -21,6 +21,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        
     }
 
     /**
@@ -68,6 +69,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-cerrar-ventana-48.png"))); // NOI18N
         jMenuItem4.setText("Salir");
         jMenu1.add(jMenuItem4);
 
@@ -80,6 +82,7 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-marcador-48.png"))); // NOI18N
         jMenuItem5.setText("Agregar Ciudad");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +91,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-editar-48.png"))); // NOI18N
         jMenuItem6.setText("Modificar Ciudad");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +100,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem6);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-eliminar-48.png"))); // NOI18N
         jMenuItem7.setText("Eliminar Ciudad");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +113,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu2.setText("Vuelo");
 
+        jMenuAgregarVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-aeropuerto-48.png"))); // NOI18N
         jMenuAgregarVuelo.setText("Agregar Vuelo");
         jMenuAgregarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +122,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuAgregarVuelo);
 
+        jMenuEliminarVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-eliminar-propiedad-48.png"))); // NOI18N
         jMenuEliminarVuelo.setText("Eliminar Vuelo");
         jMenuEliminarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +131,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuEliminarVuelo);
 
+        jMenuModificarVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-editar-propiedad-48.png"))); // NOI18N
         jMenuModificarVuelo.setText("Modificar Vuelo");
         jMenuModificarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +140,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuModificarVuelo);
 
+        jMenuConsultaVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-búsqueda-de-propiedad-48.png"))); // NOI18N
         jMenuConsultaVuelo.setText("Consultar Vuelos");
         jMenuConsultaVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +153,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuAsiento.setText("Asiento");
 
+        jMenuItemGestionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-ventana-del-avión-cerrada-48.png"))); // NOI18N
         jMenuItemGestionar.setText("Agregar asientos");
         jMenuItemGestionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +162,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuAsiento.add(jMenuItemGestionar);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-multiedición-48.png"))); // NOI18N
         jMenuItem3.setText("Gestionar asientos");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,9 +175,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu4.setText("Cliente");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-añadir-usuaria-48.png"))); // NOI18N
         jMenuItem1.setText("Agregar Cliente");
         jMenu4.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-eliminar-usuaria-48.png"))); // NOI18N
         jMenuItem2.setText("Eliminar Cliente");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +188,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-editar-usuaria-48.png"))); // NOI18N
         jMenuItem8.setText("Modificar Datos");
         jMenu4.add(jMenuItem8);
 
