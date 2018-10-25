@@ -38,6 +38,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuAsiento = new javax.swing.JMenu();
+        jMenuItemGestionar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,6 +77,18 @@ public class Inicio extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
+
+        jMenuAsiento.setText("Asiento");
+
+        jMenuItemGestionar.setText("Agregar asientos");
+        jMenuItemGestionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGestionarActionPerformed(evt);
+            }
+        });
+        jMenuAsiento.add(jMenuItemGestionar);
+
+        jMenuBar1.add(jMenuAsiento);
 
         jMenu3.setText("Salir");
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +135,16 @@ public class Inicio extends javax.swing.JFrame {
         escritorio.add(vm);
         escritorio.moveToFront(vm);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItemGestionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGestionarActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaAltaAsiento vaa = new VistaAltaAsiento();
+        vaa.setVisible(true);
+        escritorio.add(vaa);
+        escritorio.moveToFront(vaa);
+    }//GEN-LAST:event_jMenuItemGestionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +194,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenuAsiento;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemGestionar;
     // End of variables declaration//GEN-END:variables
 }
