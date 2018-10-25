@@ -32,7 +32,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
          }
          
         initComponents();
-    
+    }
 
          
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -16,14 +16,13 @@ import reservadevuelos.modelo.Conexion;
  *
  * @author Usuario
  */
-public class VistaModifCiudad extends javax.swing.JInternalFrame {
+public class VistaBajaCiudad extends javax.swing.JInternalFrame {
     private Connection connection = null;
-    private Conexion conexion;
-    Ciudad c= new Ciudad();
+     private Conexion conexion;
     /**
      * Creates new form VistaBMCiudad
      */
-    public VistaModifCiudad() {
+    public VistaBajaCiudad() {
         initComponents();
         try {
              conexion = new Conexion("jdbc:mysql://localhost/reserva_de_vuelos", "root", "");
@@ -76,10 +75,10 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
         jTextPais = new javax.swing.JTextField();
         jRadioBvigencia = new javax.swing.JRadioButton();
         jBlimpiar = new javax.swing.JButton();
-        jBmodif = new javax.swing.JButton();
+        jBborrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        jLabel1.setText("Modificar Datos de Ciudad");
+        jLabel1.setText("Ciudad");
 
         jLabel2.setText("Nombre ");
 
@@ -123,10 +122,10 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
             }
         });
 
-        jBmodif.setText("Actualizar");
-        jBmodif.addActionListener(new java.awt.event.ActionListener() {
+        jBborrar.setText("Borrar");
+        jBborrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBmodifActionPerformed(evt);
+                jBborrarActionPerformed(evt);
             }
         });
 
@@ -141,12 +140,17 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(68, 68, 68)
+                        .addGap(107, 107, 107)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jTextNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                .addComponent(jBbuscar))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,12 +173,7 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jBlimpiar)
                                         .addGap(80, 80, 80)
-                                        .addComponent(jBmodif))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jTextNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(jBbuscar)))
+                                        .addComponent(jBborrar)))))
                         .addGap(31, 31, 31))))
         );
         layout.setVerticalGroup(
@@ -185,7 +184,7 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(56, 56, 56)
                         .addComponent(jLabel1)))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -208,10 +207,10 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioBvigencia)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBlimpiar)
-                    .addComponent(jBmodif))
+                    .addComponent(jBborrar))
                 .addGap(19, 19, 19))
         );
 
@@ -230,20 +229,16 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextPaisActionPerformed
 
-    private void jBmodifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodifActionPerformed
+    private void jBborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBborrarActionPerformed
         CiudadData cd=new CiudadData(conexion);
-        c.setNombreCiudad(jTextNombreCiudad.getText());
-        c.setPais(jTextPais.getText());
-        if(jRadioBvigencia.isSelected()){
-            c.setVigencia(true);
-        }
-        cd.modifCiudad(c);
+        cd.bajaCiudad(Integer.parseInt(jTextIdCiudad.getText()));
         limpiarCampos();
-    }//GEN-LAST:event_jBmodifActionPerformed
+    }//GEN-LAST:event_jBborrarActionPerformed
 
     private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
-        CiudadData cd=new CiudadData(conexion);        
         limpiarCampos();
+        CiudadData cd=new CiudadData(conexion);
+        Ciudad c= new Ciudad();
         c=cd.obtenerCiudad(jTextNombreBuscar.getText());
         habilitarCampos();
         jTextIdCiudad.setText(String.valueOf(c.getIdCiudad()));
@@ -262,9 +257,9 @@ public class VistaModifCiudad extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBborrar;
     private javax.swing.JButton jBbuscar;
     private javax.swing.JButton jBlimpiar;
-    private javax.swing.JButton jBmodif;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
