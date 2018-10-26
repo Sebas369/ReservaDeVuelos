@@ -298,7 +298,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         // TODO add your handling code here:
-         int idCliente = ;             
+                    
          String nombre=jtNombre.getText();
          String apellido = jtApellido.getText();
          
