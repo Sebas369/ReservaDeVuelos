@@ -18,7 +18,7 @@ import reservadevuelos.modelo.Conexion;
  * @author dario
  */
 public class VistaAltaCliente extends javax.swing.JFrame {
-   // private Cliente cliente;
+    private Cliente cliente;
     private ClienteData clienteData;
     private Conexion conexion;
      ArrayList <Cliente>listaClientes = new ArrayList();
@@ -35,8 +35,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
              Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
          }
 
-   
-        /* public void limpiarCampos(){
+    }
+       /* public void limpiarCampos(){
           
         this.jtIdCliente.setText("");
         this.jtNombre.setText("");
@@ -46,8 +46,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         this.jtNumeroPasaporte.setText("");
         this.jtNumeroTarjeta.setText("");
         this.jtEmail.setText("");
-    }   */
-    
+    }   
+    */
 //@SuppressWarnings("unchecked")
      // initComponents();
    
@@ -78,7 +78,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jtEmail = new javax.swing.JTextField();
         jLIdCliente = new javax.swing.JLabel();
         jtIdCliente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        btInfo = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -101,6 +101,11 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         });
 
         jrMasculino.setText("Masculino");
+        jrMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMasculinoActionPerformed(evt);
+            }
+        });
 
         jLDni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLDni.setText("Dni");
@@ -159,7 +164,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jLIdCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLIdCliente.setText("IdCliente");
 
-        jLabel1.setText("             Info");
+        btInfo.setText("             Info");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,7 +216,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -258,7 +263,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(jLabel1)))
+                        .addComponent(btInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50))
         );
 
@@ -287,7 +292,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
        this.jtIdCliente.setText("");
         this.jtNombre.setText("");
         this.jtApellido.setText("");
-        //this.jtSexo.setText("");
+       // this.jtSexo.setText("");
         this.jtDni.setText("");
         this.jtNumeroPasaporte.setText("");
         this.jtNumeroTarjeta.setText("");
@@ -305,24 +310,21 @@ public class VistaAltaCliente extends javax.swing.JFrame {
              String nombre = jtNombre.getText();
              String apellido = jtApellido.getText();
             // String sexo = jr   ???
-             int dni = Integer.parseInt(this.jtDni.getText());
-             int numeroPasaporte = Integer.parseInt(this.jtNumeroPasaporte.getText());
-             int numeroTarjeta = Integer.parseInt(this.jtNumeroTarjeta.getText());
+             long dni = Long.parseLong(this.jtDni.getText());  //this.jtDni.getText()
+             long numeroPasaporte = Long.parseLong(this.jtNumeroPasaporte.getText());
+             String numeroTarjeta = jtNumeroTarjeta.getText();
              String eMail = jtEmail.getText();
              
-             Cliente cliente = new Cliente(idCliente,nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
+             Cliente cliente = new Cliente(idCliente,nombre,apellido,dni,numeroPasaporte,numeroTarjeta,eMail);
              this.listaClientes.add(cliente);
          } catch (Exception e){
              
          }
                     
        
-        clienteData.VistaAltaCliente(cliente);
+        clienteData.altaCliente(cliente);
         
-        Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
-        ClienteData.guardarCliente(cliente);
-        jtIdCliente.setText(cliente.getIdCliente()+"");
-        */
+      
            
         
     }//GEN-LAST:event_btGuardarActionPerformed
@@ -338,9 +340,15 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreActionPerformed
+
+    private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrMasculinoActionPerformed
     private void jRMasculinoActionPerformed(java.awt.event.ActionEvent evt) {                                           
       jrFemenino.setSelected(false);   }
     
+      
+      
       
   
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -374,6 +382,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGuardar;
+    private javax.swing.JLabel btInfo;
     private javax.swing.JButton btLimpiar;
     private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLCliente;
@@ -383,7 +392,6 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLNumeroDeTarjeta;
     private javax.swing.JLabel jLNumeroPasaporte;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
@@ -399,7 +407,5 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jtNumeroTarjeta;
     // End of variables declaration//GEN-END:variables
 
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
