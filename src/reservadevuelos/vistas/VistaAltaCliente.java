@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UnsupportedLookAndFeelException;
 import reservadevuelos.modelo.Cliente;
 import reservadevuelos.modelo.ClienteData;
 import reservadevuelos.modelo.Conexion;
@@ -36,7 +37,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
          }
 
     }
-       /* public void limpiarCampos(){
+        public void limpiarCampos(){
           
         this.jtIdCliente.setText("");
         this.jtNombre.setText("");
@@ -47,9 +48,9 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         this.jtNumeroTarjeta.setText("");
         this.jtEmail.setText("");
     }   
-    */
+    
 //@SuppressWarnings("unchecked")
-     // initComponents();
+     
    
          
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -78,7 +79,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jtEmail = new javax.swing.JTextField();
         jLIdCliente = new javax.swing.JLabel();
         jtIdCliente = new javax.swing.JTextField();
-        btInfo = new javax.swing.JLabel();
+        lbInformacion = new javax.swing.JLabel();
+        btSalir = new javax.swing.JToggleButton();
 
         jMenu1.setText("jMenu1");
 
@@ -164,7 +166,14 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jLIdCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLIdCliente.setText("IdCliente");
 
-        btInfo.setText("             Info");
+        lbInformacion.setText("Informacion");
+
+        btSalir.setText("Salir");
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,12 +182,9 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(jLCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLDni, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,18 +212,19 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                                                 .addComponent(jrMasculino))
                                             .addComponent(jtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                                             .addComponent(jtApellido)
-                                            .addComponent(jtIdCliente))))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(jtIdCliente)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(81, 81, 81)
+                                .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btSalir))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(266, 266, 266)
-                        .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(btInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(jLCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,17 +261,17 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                     .addComponent(jtNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLEmail)
-                        .addGap(87, 87, 87)
+                        .addGap(46, 46, 46)
+                        .addComponent(lbInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50))
+                            .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -280,8 +287,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(248, 248, 248))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,15 +296,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpiarActionPerformed
         // TODO add your handling code here:
-       this.jtIdCliente.setText("");
-        this.jtNombre.setText("");
-        this.jtApellido.setText("");
-       // this.jtSexo.setText("");
-        this.jtDni.setText("");
-        this.jtNumeroPasaporte.setText("");
-        this.jtNumeroTarjeta.setText("");
-        this.jtEmail.setText("");
-        
+       limpiarCampos();
     }//GEN-LAST:event_btLimpiarActionPerformed
 
     private void jtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEmailActionPerformed
@@ -306,6 +305,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
          try {
+             
              int idCliente = Integer.parseInt(this.jtIdCliente.getText());
              String nombre = jtNombre.getText();
              String apellido = jtApellido.getText();
@@ -315,13 +315,16 @@ public class VistaAltaCliente extends javax.swing.JFrame {
              String numeroTarjeta = jtNumeroTarjeta.getText();
              String eMail = jtEmail.getText();
              
+             
+             
              Cliente cliente = new Cliente(idCliente,nombre,apellido,dni,numeroPasaporte,numeroTarjeta,eMail);
              this.listaClientes.add(cliente);
-         } catch (Exception e){
+             limpiarCampos();
              
+             this.lbInformacion.setText("cliente ingresado");
+         } catch (Exception e){
+             this.lbInformacion.setText("error de ingreso");
          }
-                    
-       
         clienteData.altaCliente(cliente);
         
       
@@ -342,23 +345,32 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jtNombreActionPerformed
 
     private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
-        // TODO add your handling code here:
+        jrFemenino.setSelected(false);  
     }//GEN-LAST:event_jrMasculinoActionPerformed
-    private void jRMasculinoActionPerformed(java.awt.event.ActionEvent evt) {                                           
-      jrFemenino.setSelected(false);   }
+
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btSalirActionPerformed
     
       
-      
-      
-  
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    try {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InstantiationException ex) {
+                        Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IllegalAccessException ex) {
+                        Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (UnsupportedLookAndFeelException ex) {
+                        Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     break;
                 }
             }
@@ -373,17 +385,12 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable()) {
-            public void run() {
-                new VistaAltaCliente().setVisible(true);
-            }
-        }*/
+        
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGuardar;
-    private javax.swing.JLabel btInfo;
     private javax.swing.JButton btLimpiar;
+    private javax.swing.JToggleButton btSalir;
     private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLCliente;
     private javax.swing.JLabel jLDni;
@@ -405,7 +412,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jtNombre;
     private javax.swing.JTextField jtNumeroPasaporte;
     private javax.swing.JTextField jtNumeroTarjeta;
+    private javax.swing.JLabel lbInformacion;
     // End of variables declaration//GEN-END:variables
 
-   
 }
