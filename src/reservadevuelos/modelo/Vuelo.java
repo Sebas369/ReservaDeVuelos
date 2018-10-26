@@ -33,8 +33,7 @@ public class Vuelo {
         this.fechaLlegada = fechaLlegada;
         this.estadoVuelo = estadoVuelo;
     }
-    
-    
+        
     //Getter y setter
     public int getIdVuelo() {
         return idVuelo;

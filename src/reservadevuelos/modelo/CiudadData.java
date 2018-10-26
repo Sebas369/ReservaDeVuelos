@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,11 +18,10 @@ import java.util.List;
  */
 public class CiudadData {
     private Connection connection = null;
-    private Conexion conexion;
+  
     
     public CiudadData(Conexion conexion) {
         try {
-            this.conexion=conexion;
             connection = conexion.getConexion();
         } catch (SQLException ex) {
             System.out.println("Error al abrir al obtener la conexion");
@@ -72,16 +71,15 @@ public class CiudadData {
     
         try {
             
-            String sql = "UPDATE ciudad SET nbreCiudad = ?, pais = ? , vigencia =? WHERE id = ?;";
+            String sql = "UPDATE ciudad SET nbreCiudad = ?, pais = ? , vigencia =? WHERE idCiudad = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, ciudad.getNombreCiudad());
             statement.setString(2, ciudad.getPais());
             statement.setBoolean(3, ciudad.getVigencia());
             statement.setInt(4, ciudad.getIdCiudad());
-            statement.executeUpdate();
             
-          
+            statement.executeUpdate();
             statement.close();
     
         } catch (SQLException ex) {

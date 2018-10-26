@@ -35,7 +35,7 @@ public class VueloData {
         }
     }
         
-     //Insertar nuevo vuelo en la tabla
+     //Carga un nuevo vuelo en la tabla
     public void altaVuelo(Vuelo vuelo){
         
         
@@ -98,6 +98,7 @@ public class VueloData {
             statement.setDate(5, Date.valueOf(vuelo.getFechaSalida()));
             statement.setDate(6, Date.valueOf(vuelo.getFechaLlegada()));
             statement.setString(7, vuelo.getEstadoVuelo());
+            statement.setInt(8, vuelo.getIdVuelo());
             
             statement.executeUpdate();            
             statement.close();
@@ -108,30 +109,30 @@ public class VueloData {
     
     }
          
-    //Inicio vuelo entre .....-----
-    public List<Vuelo> vueloEntre(Ciudad ciudad1, Ciudad ciudad2, LocalDate fecha){
+    //Obtiene vuelos entre dos ciudades
+    public List<Vuelo> vueloEntre(Ciudad ciudadO, Ciudad ciudadD, LocalDate fecha){
        List<Vuelo> vueloEntre= new ArrayList<Vuelo>(); 
+       CiudadData cd=new CiudadData(conexion); 
        
-       String sql = "SELECT * FROM vuelo WHERE id_ciudadOrigen = ? AND id_ciudadDestino = ? AND fechaSaida= ?;";
+       String sql = "SELECT * FROM vuelo WHERE id_ciudadOrigen = ? AND id_ciudadDestino = ? AND fechaSalida= ?;";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, ciudadO.getIdCiudad());
+            statement.setInt(2, ciudadD.getIdCiudad());
+            statement.setDate(3, Date.valueOf(fecha));
+            
             ResultSet resultSet = statement.executeQuery();
             Vuelo vuelo;
-            Ciudad c= new Ciudad();
+            
             while(resultSet.next()){
                 vuelo = new Vuelo();
                 vuelo.setIdVuelo(resultSet.getInt("idVuelo"));
                 vuelo.setAerolinea(resultSet.getString("aerolinea"));
                 vuelo.setAeronave(resultSet.getString("aeronave"));
-               
-                c.setIdCiudad(resultSet.getInt("id_ciudadOrigen"));
-                vuelo.setCiudadOrigen(c);
-                c.setIdCiudad(resultSet.getInt("id_ciudadDestino"));
-                vuelo.setCiudadDestino(c);
-                
+                vuelo.setCiudadOrigen(cd.obtenerCiudadPorId(resultSet.getInt("id_ciudadOrigen")));
+                vuelo.setCiudadDestino(cd.obtenerCiudadPorId(resultSet.getInt("id_ciudadDestino"))); 
                 vuelo.setFechaSalida(resultSet.getDate("fechaSalida").toLocalDate());
                 vuelo.setFechaLlegada(resultSet.getDate("fechaDestino").toLocalDate());
-                
                 vuelo.setEstadoVuelo(resultSet.getString("estadoVuelo"));
                 
                 vueloEntre.add(vuelo);
@@ -144,9 +145,8 @@ public class VueloData {
               
        return vueloEntre;
     }
-    
-       
-     //Obtener Vuelos  
+           
+     //Obtiene todos los Vuelos  
     public List<Vuelo> cantVuelos(){
         List<Vuelo> vuelos = new ArrayList<>();
         CiudadData cd=new CiudadData(conexion);    

@@ -34,9 +34,15 @@ public class VistaAltaCliente extends javax.swing.JFrame {
              Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
          }
          
+<<<<<<< HEAD
     }   
     
 @SuppressWarnings("unchecked")
+=======
+        initComponents();
+    }
+
+>>>>>>> origin/master
          
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

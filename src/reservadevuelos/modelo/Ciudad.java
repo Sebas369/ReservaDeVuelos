@@ -30,19 +30,14 @@ public class Ciudad {
     public Ciudad() {
     }
     
-    
-
     public int getIdCiudad() {
         return idCiudad;
     }
-
    
     public void setIdCiudad(int idCiudad) {
         this.idCiudad = idCiudad;
     }
-    
-    
-
+  
     public String getNombreCiudad() {
         return nombreCiudad;
     }
@@ -67,8 +62,5 @@ public class Ciudad {
         this.vigencia = vigencia;
     }
     
-   
-    
-        
-    }
+       }
 

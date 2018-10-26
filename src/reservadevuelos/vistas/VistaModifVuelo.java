@@ -21,7 +21,7 @@ import reservadevuelos.modelo.VueloData;
  *
  * @author Usuario
  */
-public class VistaAltaVuelo extends javax.swing.JInternalFrame {
+public class VistaModifVuelo extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaVuelo
@@ -30,12 +30,12 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
      private Connection connection = null;
      private Conexion conexion;
      
-    public VistaAltaVuelo() {
+    public VistaModifVuelo() {
         initComponents();
          try {
              conexion = new Conexion("jdbc:mysql://localhost/reserva_de_vuelos", "root", "");
          } catch (ClassNotFoundException ex) {
-             Logger.getLogger(VistaAltaVuelo.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(VistaModifVuelo.class.getName()).log(Level.SEVERE, null, ex);
          }
         
         this.jComboBoxCiudadOrigen.removeAllItems();
@@ -72,6 +72,8 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        tablaVuelos = new javax.swing.JScrollPane();
+        tVuelos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldAerolinea = new javax.swing.JTextField();
@@ -87,12 +89,27 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextFieldEstadoVuelo = new javax.swing.JTextField();
         jBguardar = new javax.swing.JButton();
-        jBcancelar = new javax.swing.JButton();
         jComboBoxCiudadOrigen = new javax.swing.JComboBox();
         jBlimpiar = new javax.swing.JButton();
         jImagen = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jBbuscar = new javax.swing.JButton();
+        jTextCodigoVuelo = new javax.swing.JTextField();
 
-        jLabel1.setText("Ingesar Nuevo Vuelo");
+        tVuelos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Ciudad Origen", "Ciudad Destino", "Aerolinea", "Aeronave", "Fecha Salida", "Fecha Llegada", "Estado de Vuelo", "Codigo de Vuelo"
+            }
+        ));
+        tablaVuelos.setViewportView(tVuelos);
+
+        jLabel1.setText("Modificar  Vuelo");
 
         jLabel2.setText("Aerolinea");
 
@@ -128,8 +145,6 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
             }
         });
 
-        jBcancelar.setText("Cancelar");
-
         jComboBoxCiudadOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxCiudadOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,94 +161,123 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
 
         jImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reservadevuelos/imagen/Avion_50x50.png"))); // NOI18N
 
+        jLabel9.setText("Ingrese el Codigo");
+
+        jBbuscar.setText("Buscar");
+        jBbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBbuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                .addGap(251, 251, 251)
+                .addComponent(jTextCodigoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(jBbuscar)
+                .addGap(120, 120, 120))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jDateFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(427, 427, 427)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
                                     .addComponent(jImagen))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1)
-                                        .addGap(116, 116, 116))
+                                        .addGap(242, 242, 242)
+                                        .addComponent(jLabel1))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(15, 15, 15)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldAeronave, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldAerolinea, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jComboBoxCiudadOrigen, 0, 237, Short.MAX_VALUE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jTextFieldAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(140, 140, 140)
+                                        .addComponent(jLabel3)))
+                                .addGap(29, 29, 29)
+                                .addComponent(jTextFieldAeronave, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateFechaLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                                    .addComponent(jDateFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                                    .addComponent(jComboBoxCiudadDestino, 0, 237, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldEstadoVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))))
+                                .addComponent(jLabel4)
+                                .addGap(15, 15, 15)
+                                .addComponent(jComboBoxCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel5)
+                                .addGap(4, 4, 4)
+                                .addComponent(jComboBoxCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jBcancelar)
-                        .addGap(40, 40, 40)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
                         .addComponent(jBlimpiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(58, 58, 58)
                         .addComponent(jBguardar)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jImagen)
-                    .addComponent(jLabel1))
-                .addGap(39, 39, 39)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(15, 15, 15)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jBbuscar)
+                    .addComponent(jTextCodigoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldAeronave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBoxCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBoxCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBoxCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jDateFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jDateFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextFieldEstadoVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBlimpiar)
-                    .addComponent(jBcancelar)
                     .addComponent(jBguardar))
-                .addGap(23, 23, 23))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
@@ -268,9 +312,13 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
         this.limpiarCampos();
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
+    private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBbuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBcancelar;
+    private javax.swing.JButton jBbuscar;
     private javax.swing.JButton jBguardar;
     private javax.swing.JButton jBlimpiar;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -287,9 +335,13 @@ public class VistaAltaVuelo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextCodigoVuelo;
     private javax.swing.JTextField jTextFieldAerolinea;
     private javax.swing.JTextField jTextFieldAeronave;
     private javax.swing.JTextField jTextFieldEstadoVuelo;
+    private javax.swing.JTable tVuelos;
+    private javax.swing.JScrollPane tablaVuelos;
     // End of variables declaration//GEN-END:variables
 
    
