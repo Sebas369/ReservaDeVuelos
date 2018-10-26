@@ -54,14 +54,12 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jrFemenino = new javax.swing.JRadioButton();
         jrMasculino = new javax.swing.JRadioButton();
         jLDni = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSexo = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        btActualizar = new javax.swing.JButton();
-        btBorrar = new javax.swing.JButton();
+        jLNombre = new javax.swing.JLabel();
+        jLApellido = new javax.swing.JLabel();
+        jlSexo = new javax.swing.JLabel();
+        jLNumeroPasaporte = new javax.swing.JLabel();
+        jLNumeroDeTarjeta = new javax.swing.JLabel();
+        jLEmail = new javax.swing.JLabel();
         btGuardar = new javax.swing.JButton();
         btLimpiar = new javax.swing.JButton();
         jtNombre = new javax.swing.JTextField();
@@ -70,7 +68,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jtNumeroPasaporte = new javax.swing.JTextField();
         jtNumeroTarjeta = new javax.swing.JTextField();
         jtEmail = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLIdCliente = new javax.swing.JLabel();
         jtIdCliente = new javax.swing.JTextField();
 
         jMenu1.setText("jMenu1");
@@ -98,37 +96,23 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jLDni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLDni.setText("Dni");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Nombre");
+        jLNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLNombre.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Apellido");
+        jLApellido.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLApellido.setText("Apellido");
 
-        jSexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jSexo.setText("Sexo");
+        jlSexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlSexo.setText("Sexo");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Numero de Pasaporte");
+        jLNumeroPasaporte.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLNumeroPasaporte.setText("Numero de Pasaporte");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Numero de Tarjeta");
+        jLNumeroDeTarjeta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLNumeroDeTarjeta.setText("Numero de Tarjeta");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Email");
-
-        btActualizar.setText("Actualizar");
-        btActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btActualizarActionPerformed(evt);
-            }
-        });
-
-        btBorrar.setText("Borrar");
-        btBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBorrarActionPerformed(evt);
-            }
-        });
+        jLEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLEmail.setText("Email");
 
         btGuardar.setText("Guardar");
         btGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,8 +147,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("IdCliente");
+        jLIdCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLIdCliente.setText("IdCliente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,15 +164,15 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLDni, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLNumeroPasaporte)
+                                    .addComponent(jLNumeroDeTarjeta)
+                                    .addComponent(jLEmail)
+                                    .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
+                                        .addComponent(jLIdCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(62, 62, 62)
@@ -209,13 +193,9 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                                             .addComponent(jtIdCliente))))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(btBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(44, 44, 44)
                         .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(243, 243, 243)
                         .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -225,19 +205,19 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                 .addComponent(jLCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSexo)
+                    .addComponent(jlSexo)
                     .addComponent(jrFemenino)
                     .addComponent(jrMasculino))
                 .addGap(44, 44, 44)
@@ -246,20 +226,18 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                     .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLNumeroPasaporte)
                     .addComponent(jtNumeroPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addComponent(jLNumeroDeTarjeta)
                     .addComponent(jtNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(jLEmail)
                         .addGap(87, 87, 87)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -293,16 +271,6 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private void jtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtEmailActionPerformed
-
-    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btActualizarActionPerformed
-
-    private void btBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBorrarActionPerformed
-        // TODO add your handling code here:
-          int idCliente=Integer.parseInt(jtIdCliente.getText());
-        clienteData.bajaCliente(idCliente);
-    }//GEN-LAST:event_btBorrarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         // TODO add your handling code here:
@@ -387,22 +355,20 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btActualizar;
-    private javax.swing.JButton btBorrar;
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btLimpiar;
+    private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLCliente;
     private javax.swing.JLabel jLDni;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLEmail;
+    private javax.swing.JLabel jLIdCliente;
+    private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLNumeroDeTarjeta;
+    private javax.swing.JLabel jLNumeroPasaporte;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jSexo;
+    private javax.swing.JLabel jlSexo;
     private javax.swing.JRadioButton jrFemenino;
     private javax.swing.JRadioButton jrMasculino;
     private javax.swing.JTextField jtApellido;
