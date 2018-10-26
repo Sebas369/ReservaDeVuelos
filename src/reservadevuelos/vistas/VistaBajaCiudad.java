@@ -78,7 +78,7 @@ public class VistaBajaCiudad extends javax.swing.JInternalFrame {
         jBborrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        jLabel1.setText("Ciudad");
+        jLabel1.setText("Eliminar una Ciudad");
 
         jLabel2.setText("Nombre ");
 
