@@ -31,8 +31,9 @@ public Cliente(String nbre,String apell,String sexo,long dni,long nPasapor,Strin
         this.email = email;
     }
     
-    //constructor por defecto
+    
     Cliente(){
+        idCliente = -1;
     }
 
     public int getIdCliente() {

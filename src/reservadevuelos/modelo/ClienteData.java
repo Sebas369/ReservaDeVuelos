@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,8 @@ public class ClienteData {
         try {
             
             String sql = "INSERT INTO cliente (nombre, apellido, sexo, dni, numPasaporte, numTarjeta, email) VALUES ( ? , ? , ? , ? , ? , ? , ? );";
-
-            PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql);
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+           // PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql);
             statement.setString(1, cliente.getNombre());
             statement.setString(2, cliente.getApellido());
             statement.setString(3, cliente.getSexo());
@@ -44,12 +45,22 @@ public class ClienteData {
             statement.setString(6, cliente.getNumTarjeta());
             statement.setString(7, cliente.getEmail());
     
-            statement.executeUpdate();           
+            statement.executeUpdate(); 
+            ResultSet rs = statement.getGeneratedKeys();
+
+            if (rs.next()) {
+                cliente.setIdCliente(rs.getInt(1));
+            } else {
+                System.out.println("error al insertar el cliente" );
+            }
+            
+            
             statement.close();
     
         } catch (SQLException ex) {
             System.out.println("Error al insertar el cliente: " + ex.getMessage());
         }
+        
     }
     
     //Borrar un cliente de la tabla
@@ -57,15 +68,17 @@ public class ClienteData {
     try {
             
             String sql = "DELETE FROM cliente WHERE idCliente =?;";
+            
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql);
+           // PreparedStatement statement = (PreparedStatement) connection.prepareStatement(sql);
             statement.setInt(1, idCliente);
                        
             statement.executeUpdate();
             statement.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al borrar el cliente: " + ex.getMessage());
+            System.out.println("Error al insertar el cliente: " + ex.getMessage());
         }
         
     
@@ -103,7 +116,7 @@ public class ClienteData {
             
 
         try {
-            String sql = "SELECT * FROM cliente;";
+            String sql = "SELECT numPasaporte FROM cliente;";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             Cliente cliente;
