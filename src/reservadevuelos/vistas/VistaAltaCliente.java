@@ -294,6 +294,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBorrarActionPerformed
         // TODO add your handling code here:
+          int idCliente=Integer.parseInt(jtIdCliente.getText());
+        clienteData.bajaCliente(idCliente);
     }//GEN-LAST:event_btBorrarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
