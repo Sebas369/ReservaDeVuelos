@@ -6,6 +6,7 @@
 package reservadevuelos.vistas;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import reservadevuelos.modelo.Cliente;
@@ -17,10 +18,10 @@ import reservadevuelos.modelo.Conexion;
  * @author dario
  */
 public class VistaAltaCliente extends javax.swing.JFrame {
-    //private Cliente cliente;
+   // private Cliente cliente;
     private ClienteData clienteData;
     private Conexion conexion;
-     
+     ArrayList <Cliente>listaClientes = new ArrayList();
     
      private Connection connection = null;
      
@@ -33,16 +34,23 @@ public class VistaAltaCliente extends javax.swing.JFrame {
          } catch (ClassNotFoundException ex) {
              Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
          }
-         
-<<<<<<< HEAD
-    }   
-    
-@SuppressWarnings("unchecked")
-=======
-        initComponents();
-    }
 
->>>>>>> origin/master
+   
+        /* public void limpiarCampos(){
+          
+        this.jtIdCliente.setText("");
+        this.jtNombre.setText("");
+        this.jtApellido.setText("");
+        //this.jtSexo.setText("");
+        this.jtDni.setText("");
+        this.jtNumeroPasaporte.setText("");
+        this.jtNumeroTarjeta.setText("");
+        this.jtEmail.setText("");
+    }   */
+    
+//@SuppressWarnings("unchecked")
+     // initComponents();
+   
          
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,6 +78,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jtEmail = new javax.swing.JTextField();
         jLIdCliente = new javax.swing.JLabel();
         jtIdCliente = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -150,6 +159,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jLIdCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLIdCliente.setText("IdCliente");
 
+        jLabel1.setText("             Info");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -195,9 +206,13 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(243, 243, 243)
-                        .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)))
+                        .addGap(266, 266, 266)
+                        .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +255,10 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1)))
                 .addGap(50, 50, 50))
         );
 
@@ -266,6 +284,15 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpiarActionPerformed
         // TODO add your handling code here:
+       this.jtIdCliente.setText("");
+        this.jtNombre.setText("");
+        this.jtApellido.setText("");
+        //this.jtSexo.setText("");
+        this.jtDni.setText("");
+        this.jtNumeroPasaporte.setText("");
+        this.jtNumeroTarjeta.setText("");
+        this.jtEmail.setText("");
+        
     }//GEN-LAST:event_btLimpiarActionPerformed
 
     private void jtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEmailActionPerformed
@@ -273,45 +300,35 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jtEmailActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-        // TODO add your handling code here:
+         try {
+             int idCliente = Integer.parseInt(this.jtIdCliente.getText());
+             String nombre = jtNombre.getText();
+             String apellido = jtApellido.getText();
+            // String sexo = jr   ???
+             int dni = Integer.parseInt(this.jtDni.getText());
+             int numeroPasaporte = Integer.parseInt(this.jtNumeroPasaporte.getText());
+             int numeroTarjeta = Integer.parseInt(this.jtNumeroTarjeta.getText());
+             String eMail = jtEmail.getText();
+             
+             Cliente cliente = new Cliente(idCliente,nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
+             this.listaClientes.add(cliente);
+         } catch (Exception e){
+             
+         }
                     
-         String nombre=jtNombre.getText();
-         String apellido = jtApellido.getText();
-         
-          Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
+       
         clienteData.VistaAltaCliente(cliente);
         
         Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
         ClienteData.guardarCliente(cliente);
         jtIdCliente.setText(cliente.getIdCliente()+"");
-        
-       
-        /*String nombre=jtNombre.getText();
-        /*
-          String nombre=jtNombre.getText();
-        LocalDate fecNac = LocalDate.parse(jtFecha.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-       
-        boolean activo=chActivo.isSelected();
-        
-        Alumno alumno=new Alumno(nombre,fecNac,activo);
-        alumnoData.guardarAlumno(alumno);
-        
-        jtId.setText(alumno.getId()+"");
-        /*
-        
-        Materia materia=new Materia(nombre);
-        materiaData.guardarMateria(materia);
-        
-        jtId.setText(materia.getId()+"");
-    }                                         */
-        
-    }                                         
-        
+        */
+           
         
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void jrFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrFemeninoActionPerformed
-      jRMasculino.setSelected(false);
+      jrMasculino.setSelected(false);
     }//GEN-LAST:event_jrFemeninoActionPerformed
 
     private void jtNumeroPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNumeroPasaporteActionPerformed
@@ -322,8 +339,9 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreActionPerformed
     private void jRMasculinoActionPerformed(java.awt.event.ActionEvent evt) {                                           
-      jRFemenino.setSelected(false);   }
+      jrFemenino.setSelected(false);   }
     
+      
   
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -365,6 +383,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLNumeroDeTarjeta;
     private javax.swing.JLabel jLNumeroPasaporte;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
@@ -379,4 +398,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jtNumeroPasaporte;
     private javax.swing.JTextField jtNumeroTarjeta;
     // End of variables declaration//GEN-END:variables
+
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
