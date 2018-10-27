@@ -46,7 +46,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +55,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="248" max="32767" attributes="0"/>
+              <EmptySpace pref="247" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,44 +86,6 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jlSexo" min="-2" pref="64" max="-2" attributes="0"/>
-                                      <Component id="jLDni" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jLNumeroPasaporte" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLNumeroDeTarjeta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLApellido" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jLIdCliente" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLNombre" alignment="0" pref="80" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jtDni" max="32767" attributes="0"/>
-                                              <Component id="jtNumeroPasaporte" max="32767" attributes="0"/>
-                                              <Component id="jtNumeroTarjeta" max="32767" attributes="0"/>
-                                              <Component id="jtEmail" pref="173" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jrFemenino" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jrMasculino" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jtNombre" alignment="0" pref="173" max="32767" attributes="0"/>
-                                              <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jtIdCliente" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lbInformacion" min="-2" pref="96" max="-2" attributes="0"/>
@@ -131,8 +93,58 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                   <Component id="btLimpiar" min="-2" pref="113" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="57" max="32767" attributes="0"/>
                                   <Component id="btSalir" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jlSexo" min="-2" pref="64" max="-2" attributes="0"/>
+                                              <Component id="jLDni" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jLNumeroPasaporte" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLNumeroDeTarjeta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLApellido" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="jtDni" max="32767" attributes="0"/>
+                                                      <Component id="jtNumeroPasaporte" max="32767" attributes="0"/>
+                                                      <Component id="jtNumeroTarjeta" max="32767" attributes="0"/>
+                                                      <Component id="jtEmail" pref="173" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jrFemenino" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jrMasculino" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="jtNombre" alignment="0" pref="173" max="32767" attributes="0"/>
+                                                      <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jLIdCliente" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLNombre" alignment="0" pref="80" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jtIdCliente" min="-2" pref="119" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jbBuscar" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jbBorrar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -150,9 +162,11 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jLCliente" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLIdCliente" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jtIdCliente" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLIdCliente" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jtIdCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -348,6 +362,19 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalirActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbBuscar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Buscar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBuscarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbBorrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Borrar"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

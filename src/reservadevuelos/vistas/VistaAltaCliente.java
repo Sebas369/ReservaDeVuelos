@@ -48,7 +48,14 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         this.jtNumeroTarjeta.setText("");
         this.jtEmail.setText("");
     }   
+    public void inicializar(){
+        limpiarCampos();
+    }
     
+    public void mostrarMensaje(String mostrarMensaje){
+        String mensaje = null;
+     this.lbInformacion.setText(mensaje);
+    }
 //@SuppressWarnings("unchecked")
      
    
@@ -81,6 +88,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
         jtIdCliente = new javax.swing.JTextField();
         lbInformacion = new javax.swing.JLabel();
         btSalir = new javax.swing.JToggleButton();
+        jbBuscar = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -175,6 +184,15 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             }
         });
 
+        jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
+
+        jbBorrar.setText("Borrar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,42 +203,51 @@ public class VistaAltaCliente extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLDni, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLNumeroPasaporte)
-                                    .addComponent(jLNumeroDeTarjeta)
-                                    .addComponent(jLEmail)
-                                    .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLIdCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jtDni)
-                                            .addComponent(jtNumeroPasaporte)
-                                            .addComponent(jtNumeroTarjeta)
-                                            .addComponent(jtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jrFemenino)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jrMasculino))
-                                            .addComponent(jtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                            .addComponent(jtApellido)
-                                            .addComponent(jtIdCliente)))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lbInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(81, 81, 81)
                                 .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btSalir))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                                .addComponent(btSalir))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jlSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLDni, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLNumeroPasaporte)
+                                            .addComponent(jLNumeroDeTarjeta)
+                                            .addComponent(jLEmail)
+                                            .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(62, 62, 62)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jtDni)
+                                                    .addComponent(jtNumeroPasaporte)
+                                                    .addComponent(jtNumeroTarjeta)
+                                                    .addComponent(jtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jrFemenino)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jrMasculino))
+                                                    .addComponent(jtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                                    .addComponent(jtApellido)))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLIdCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jbBuscar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jbBorrar)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jLCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -231,9 +258,11 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbBuscar)
+                    .addComponent(jbBorrar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -281,14 +310,14 @@ public class VistaAltaCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         pack();
@@ -305,27 +334,44 @@ public class VistaAltaCliente extends javax.swing.JFrame {
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
          try {
-             
-             int idCliente = Integer.parseInt(this.jtIdCliente.getText());
+             String idClienteStr = this.jtIdCliente.getText();
+            
              String nombre = jtNombre.getText();
              String apellido = jtApellido.getText();
             // String sexo = jr   ???
-             long dni = Long.parseLong(this.jtDni.getText());  //this.jtDni.getText()
-             long numeroPasaporte = Long.parseLong(this.jtNumeroPasaporte.getText());
-             String numeroTarjeta = jtNumeroTarjeta.getText();
-             String eMail = jtEmail.getText();
+            String dniStr = this.jtDni.getText();
+            String numeroPasaporteStr = this.jtNumeroPasaporte.getText();
+            String numeroTarjeta = jtNumeroTarjeta.getText();
+            String eMail = jtEmail.getText();
              
+             boolean errorIngresoVacio = false ;
+             if("".equals(idClienteStr)) errorIngresoVacio = true;
+             if("".equals(nombre)) errorIngresoVacio = true;
+             if("".equals(apellido)) errorIngresoVacio = true;
+             if("".equals(dniStr)) errorIngresoVacio = true;
+             if("".equals(numeroPasaporteStr)) errorIngresoVacio = true;
+             if("".equals(numeroTarjeta)) errorIngresoVacio = true;
+             if("".equals(eMail)) errorIngresoVacio = true;
              
+             if (errorIngresoVacio){
+                 mostrarMensaje("Debe ingresar todos los campos");
+                 return;
+             }
+             
+              int idCliente = Integer.parseInt(idClienteStr);
+              long dni = Long.parseLong(dniStr); 
+             long numeroPasaporte = Long.parseLong(numeroPasaporteStr);
+              
              
              Cliente cliente = new Cliente(idCliente,nombre,apellido,dni,numeroPasaporte,numeroTarjeta,eMail);
              this.listaClientes.add(cliente);
              limpiarCampos();
              
-             this.lbInformacion.setText("cliente ingresado");
-         } catch (Exception e){
-             this.lbInformacion.setText("error de ingreso");
+             mostrarMensaje("cliente ingresado");
+         }   catch (Exception e){
+             mostrarMensaje("ingrese datos validos:id, numero de pasaporte deben ser numericos");
          }
-        clienteData.altaCliente(cliente);
+            clienteData.altaCliente(cliente);
         
       
            
@@ -351,6 +397,25 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btSalirActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        String idClienteStr = jtIdCliente.getText();
+        if("".equals(idClienteStr)){
+           mostrarMensaje("debe ingresar un IdCliente");
+           for (Cliente cliente:listaClientes) {
+               //int idCliente = 0 ;
+               if(cliente.getIdCliente()== idCliente){
+                   
+               } 
+           }
+        }
+        
+        try {
+           int idCliente = Integer.parseInt(idClienteStr); 
+        }catch(Exception e){
+            mostrarMensaje("Id debe ser numerico");
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
     
       
      //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -402,6 +467,8 @@ public class VistaAltaCliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbBuscar;
     private javax.swing.JLabel jlSexo;
     private javax.swing.JRadioButton jrFemenino;
     private javax.swing.JRadioButton jrMasculino;
