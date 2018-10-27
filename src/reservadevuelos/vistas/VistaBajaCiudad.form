@@ -128,7 +128,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ciudad"/>
+        <Property name="text" type="java.lang.String" value="Eliminar una Ciudad"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
