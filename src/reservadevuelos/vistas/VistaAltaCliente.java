@@ -34,15 +34,13 @@ public class VistaAltaCliente extends javax.swing.JFrame {
              Logger.getLogger(VistaAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
          }
          
-<<<<<<< HEAD
-    }   
+
     
-@SuppressWarnings("unchecked")
-=======
+
         initComponents();
     }
 
->>>>>>> origin/master
+
          
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -310,7 +308,7 @@ public class VistaAltaCliente extends javax.swing.JFrame {
          String nombre=jtNombre.getText();
          String apellido = jtApellido.getText();
          
-          Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
+        Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);
         clienteData.VistaAltaCliente(cliente);
         
         Cliente cliente=new Cliente(nombre,apellido,sexo,dni,numeroPasaporte,numeroTarjeta,eMail);

@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,9 +70,6 @@ public class VistaConsultaVuelo extends javax.swing.JInternalFrame {
     }
      
     public void mostrar(List<Vuelo> vuelos){        
-        //VueloData vd= new VueloData(conexion);
-        //List<Vuelo> vuelos = new ArrayList<>();
-        //vuelos= vd.cantVuelos();
         modelo = (DefaultTableModel) tVuelos.getModel();
         borrarFilas();
         Object[] fila= new Object [modelo.getColumnCount()]; 
@@ -85,12 +81,11 @@ public class VistaConsultaVuelo extends javax.swing.JInternalFrame {
             fila[4]=vuelos.get(i).getFechaSalida();
             fila[5]=vuelos.get(i).getFechaLlegada();
             fila[6]=vuelos.get(i).getEstadoVuelo();
-            fila[7]=vuelos.get(i).getIdVuelo();
+            
             modelo.addRow(fila);
         }
         
        tVuelos.setModel(modelo);
-                
     }
     
     public void borrarFilas(){
@@ -123,15 +118,24 @@ public class VistaConsultaVuelo extends javax.swing.JInternalFrame {
 
         tVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Ciudad Origen", "Ciudad Destino", "Aerolinea", "Aeronave", "Fecha Salida", "Fecha Llegada", "Estado de Vuelo", "Codigo de Vuelo"
+                "Ciudad Origen", "Ciudad Destino", "Aerolinea", "Aeronave", "Fecha Salida", "Fecha Llegada", "Precio"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tVuelos.getTableHeader().setReorderingAllowed(false);
         tablaVuelos.setViewportView(tVuelos);
 
         jLabel1.setText("Consultar Vuelos");
