@@ -30,10 +30,22 @@ public Cliente(String nbre,String apell,String sexo,long dni,long nPasapor,Strin
         numTarjeta = numTarj;
         this.email = email;
     }
-    
+public Cliente(String nbre,String apell,long dni,long nPasapor,String numTarj,String email){
+        
+        nombre = nbre;
+        apellido = apell;
+        this.dni = dni;
+        numPasaporte = nPasapor;
+        numTarjeta = numTarj;
+        this.email = email;
+    }    
     
     Cliente(){
         idCliente = -1;
+    }
+
+    public Cliente(int idCliente, String nombre, String apellido, long dni, long numeroPasaporte, String numeroTarjeta, String eMail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getIdCliente() {
