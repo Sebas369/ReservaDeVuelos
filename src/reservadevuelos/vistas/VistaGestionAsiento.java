@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import reservadevuelos.modelo.Asiento;
 import reservadevuelos.modelo.AsientoData;
@@ -36,6 +37,8 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
          } catch (ClassNotFoundException ex) {
              Logger.getLogger(VistaAltaVuelo.class.getName()).log(Level.SEVERE, null, ex);
          }
+        jButtonModificar.setEnabled(false);
+        jButtonEliminar.setEnabled(false);
     }
     
     public void mostrar(){        
@@ -52,6 +55,7 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
             fila[2]=asientos.get(i).getLetra();
             fila[3]=asientos.get(i).getNumero();
             fila[4]=asientos.get(i).getPrecioAsiento();
+            fila[5]=asientos.get(i).getDisponibilidad();
 
             modelo.addRow(fila);
         }
@@ -82,18 +86,18 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
         jButtonEliminar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(395, 450));
+        setPreferredSize(new java.awt.Dimension(485, 450));
 
         jTableAsientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id. Asiento", "Id. Vuelo", "Letra", "Número", "Precio"
+                "Id. Asiento", "Id. Vuelo", "Letra", "Número", "Precio", "Disponible"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -105,6 +109,11 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
         jTableAsientos.setOpaque(false);
         jTableAsientos.getTableHeader().setResizingAllowed(false);
         jTableAsientos.getTableHeader().setReorderingAllowed(false);
+        jTableAsientos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTableAsientosMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAsientos);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -112,8 +121,18 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
         jLabel1.setText("Gestion de Asientos");
 
         jButtonModificar.setText("MODIFICAR");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
 
         jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jButtonSalir.setText("SALIR");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -126,18 +145,20 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonEliminar)
                         .addGap(45, 45, 45)
                         .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,8 +179,38 @@ public class VistaGestionAsiento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+        
+        VistaModificarAsiento vma = new VistaModificarAsiento();
+        vma.obtenerIdTabla(jTableAsientos.getSelectedRow());
+        vma.setVisible(true);
+        Inicio.escritorio.add(vma);
+        Inicio.escritorio.moveToFront(vma);
+        this.dispose();
+    }//GEN-LAST:event_jButtonModificarActionPerformed
+
+    private void jTableAsientosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAsientosMousePressed
+        jButtonModificar.setEnabled(true);
+        jButtonEliminar.setEnabled(true);
+    }//GEN-LAST:event_jTableAsientosMousePressed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        
+        AsientoData ad = new AsientoData(conexion);
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el asiento?") == JOptionPane.YES_OPTION) {
+            this.dispose();
+            ad.borrarAsiento((int) jTableAsientos.getValueAt(jTableAsientos.getSelectedRow(), 0));
+            VistaGestionAsiento vga = new VistaGestionAsiento();
+            vga.show();
+            Inicio.escritorio.add(vga);
+            Inicio.escritorio.moveToFront(vga);
+            
+        }
+        
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

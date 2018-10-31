@@ -62,14 +62,16 @@ public class AsientoData {
                        
             statement.executeUpdate();
             statement.close();
+            JOptionPane.showMessageDialog(null, "El asiento se eliminó correctamente");
     
         } catch (SQLException ex) {
             System.out.println("Error al borrar el asiento: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar el asiento");
         }
     }
     
     //Modificar asiento
-    public void modificarAsieto(Asiento unAsiento){
+    public void modificarAsiento(Asiento unAsiento, int idAsiento){
     
         try {
             
@@ -81,13 +83,16 @@ public class AsientoData {
             statement.setInt(3, unAsiento.getNumero());
             statement.setBoolean(4, unAsiento.getDisponibilidad());
             statement.setDouble(5, unAsiento.getPrecioAsiento());
-            statement.setInt(6, unAsiento.getIdAsiento());
+            statement.setInt(6, idAsiento);
+            
             
             statement.executeUpdate();
             statement.close();
+            JOptionPane.showMessageDialog(null, "El asiento se modificó correctamente");
     
         } catch (SQLException ex) {
             System.out.println("Error al modificar el asiento: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al modificar el asiento");
         }
     }
     
