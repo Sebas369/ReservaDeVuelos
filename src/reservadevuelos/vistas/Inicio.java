@@ -333,12 +333,12 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        escritorio.removeAll();
+        /*escritorio.removeAll();
         escritorio.repaint();
         VistaAltaCliente ac = new VistaAltaCliente();
         ac.setVisible(true);
         escritorio.add(ac);
-        escritorio.moveToFront(ac);
+        escritorio.moveToFront(ac);*/
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
