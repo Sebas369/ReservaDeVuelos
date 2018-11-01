@@ -37,8 +37,7 @@ public class VueloData {
         
      //Carga un nuevo vuelo en la tabla
     public void altaVuelo(Vuelo vuelo){
-        
-        
+                
         try {
             
             String sql = "INSERT INTO vuelo (aerolinea, aeronave, id_ciudadOrigen, id_ciudadDestino, fechaSalida, fechaDestino, estadoVuelo) VALUES ( ? , ? , ?, ? , ? , ? , ? );";
@@ -54,12 +53,14 @@ public class VueloData {
             
             statement.executeUpdate();           
             statement.close();
-            JOptionPane.showMessageDialog(null, "Vuelo Ingresado Correctamente");
-    
+                          
         } catch (SQLException ex) {
             System.out.println("Error al insertar un nuevo vuelo: " + ex.getMessage());
+            //mensaje por error
             JOptionPane.showMessageDialog(null, "Error al insertar un nuevo vuelo");
         }
+        //mensaje por exito
+        JOptionPane.showMessageDialog(null, "Vuelo Ingresado Correctamente");
     }
     
     //Borrar un vuelo de la tabla
@@ -73,14 +74,15 @@ public class VueloData {
                        
             statement.executeUpdate();
             statement.close();
-            JOptionPane.showMessageDialog(null, "La operación se realizó con exito.");
-    
+                
         } catch (SQLException ex) {
             System.out.println("Error al borrar el vuelo: " + ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Vuelo Ingresado Correctamente");
+            //mensaje por error
+            JOptionPane.showMessageDialog(null, "Error al borrar el vuelo");
         }
-        
     
+        //mensaje por exito
+            JOptionPane.showMessageDialog(null, "La operación se realizó con exito.");
     }
     
     //Modifica el Vuelo
@@ -102,11 +104,15 @@ public class VueloData {
             
             statement.executeUpdate();            
             statement.close();
+            
     
         } catch (SQLException ex) {
             System.out.println("Error al modificar la ciudad: " + ex.getMessage());
+            //mensaje por error
+            JOptionPane.showMessageDialog(null, "Error al modificar la ciudad");
         }
-    
+    //mensaje por exito
+            JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente");
     }
          
     //Obtiene vuelos entre dos ciudades

@@ -261,18 +261,21 @@ public class VistaCiudadGestion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTableCiudadesMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cd= new CiudadData(conexion);
-        ciudad1=new Ciudad(jTextNombreCiudad.getText(),jTextPais.getText(),jRBVigencia.isSelected());
-        ciudad1.setIdCiudad(Integer.parseInt(jTextId.getText()));
-        cd.modifCiudad(ciudad1);
-        mostrar(cd.obtenerCiudades());
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el asiento?") == JOptionPane.YES_OPTION){
+            cd= new CiudadData(conexion);
+            ciudad1=new Ciudad(jTextNombreCiudad.getText(),jTextPais.getText(),jRBVigencia.isSelected());
+            ciudad1.setIdCiudad(Integer.parseInt(jTextId.getText()));
+            cd.modifCiudad(ciudad1);
+            mostrar(cd.obtenerCiudades());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //JOptionPane.showMessageDialog(null, "Mensaje dentro de la ventana", "Mensaje en la barra de titulo", JOptionPane.WARNING_MESSAGE);
-        cd= new CiudadData(conexion);
-        cd.bajaCiudad(Integer.parseInt(jTextId.getText()));
-        mostrar(cd.obtenerCiudades());
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar la ciudad?") == JOptionPane.YES_OPTION){
+             cd= new CiudadData(conexion);
+             cd.bajaCiudad(Integer.parseInt(jTextId.getText()));
+             mostrar(cd.obtenerCiudades());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

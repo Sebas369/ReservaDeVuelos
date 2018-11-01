@@ -41,8 +41,7 @@ public class VistaConsultaVuelo extends javax.swing.JInternalFrame {
          try {
              conexion = new Conexion("jdbc:mysql://localhost/reserva_de_vuelos", "root", "");
              
-             modelo=new DefaultTableModel();
-             
+             modelo=new DefaultTableModel();             
              vd= new VueloData(conexion);
              mostrar(vd.cantVuelos());             
                          

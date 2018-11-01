@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +45,11 @@ public class CiudadData {
     
         } catch (SQLException ex) {
             System.out.println("Error al insertar la ciudad: " + ex.getMessage());
+            //mensajepor error
+            JOptionPane.showMessageDialog(null, "Error al cargar la ciudad");
         }
+        
+        JOptionPane.showMessageDialog(null, "La operación se realizó con exito.");
     }
     
     //Borrar una ciudad de la tabla
